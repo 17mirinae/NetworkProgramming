@@ -1,0 +1,91 @@
+Script started on 2019년 10월 31일 (목) 오전 10시 46분 05초
+[?1034hnetpb08@~/ 998$ finger netpb08
+Login: netpb08        			Name: netpb08
+Directory: /home/student/netp/netpb08	Shell: /bin/bash
+On since 목 10월 31 08:50 (KST) on pts/10 from 117.17.142.93
+   1 hour 55 minutes idle
+On since 목 10월 31 08:59 (KST) on pts/23 from is111.skuniv.ac.kr
+   18 minutes 18 seconds idle
+On since 목 10월 31 09:06 (KST) on pts/41 from is111.skuniv.ac.kr
+No mail.
+Plan:
+2017301067 Chung Min Ji
+netpb08@~/ 999$ cd prog
+netpb08@~/prog/ 1000$ cat tcp_echocli2.c
+// 파일명 : tcp_echocli2.c
+// 기능 : 에코 서비스를 요청하는 TCP(연결형) 클라이언트
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <netdb.h>
+
+#define MAXLINE 127
+
+int main(int argc, char *argv[]) {
+	struct hostent *hp;
+	struct sockaddr_in servaddr;
+	int s, nbyte;
+	char buf[MAXLINE+1];
+
+	if(argc != 3) {
+		printf("Usage : %s hostname, port number\n", argv[0]);
+		exit(0);
+	}
+
+	if((s = socket(PF_INET, SOCK_STREAM, 0)) < 0) {
+		perror("socket fail");
+		exit(0);
+	}
+
+	hp = gethostbyname(argv[1]);
+
+	//에코 서버의 소켓주소 구조체 작성
+	bzero((char *)&servaddr, sizeof(servaddr));
+	servaddr.sin_family = AF_INET;
+	inet_pton(AF_INET, hp->h_aliases[0], &servaddr.sin_addr);
+	servaddr.sin_port = htons(atoi(argv[2]));
+
+	printf("Server IP: %s\n", inet_ntoa(*(struct in_addr *)hp->h_addr_list[0]));
+
+	// 연결요청
+	if(connect(s, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
+		perror("connect fail");
+		exit(0);
+	}
+
+	printf("입력 : ");
+	if(fgets(buf, sizeof(buf), stdin) == NULL)
+		exit(0);
+	nbyte = strlen(buf);
+
+	//에코 서버로 메시지 송신
+	if(write(s, buf, nbyte) < 0) {
+		printf("write error\n");
+		exit(0);
+	}
+
+	//수신된 에코 데이터 화면 출력
+	printf("수신 : ");
+	if((nbyte = read(s, buf, MAXLINE)) < 0) {
+		perror("read fail");
+		exit(0);
+	}
+
+	buf[nbyte] = 0;
+	printf("%s", buf);
+	close(s);
+	return 0;
+}
+netpb08@~/prog/ 1001$ ./tcp_echocli2 info.skuniv.ac.kr 7008
+Server IP: 117.17.142.201
+입력 : netpb08
+수신 : netpb08
+netpb08@~/prog/ 1002$ exit
+
+Script done on 2019년 10월 31일 (목) 오전 10시 46분 44초

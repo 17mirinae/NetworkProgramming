@@ -1,0 +1,19 @@
+Script started on 2019년 10월 14일 (월) 오후 07시 03분 41초
+[?1034hnetpb08@~/prog/ 1000$ finger netpb-89[K[K[K08
+Login: netpb08        			Name: netpb08
+Directory: /home/student/netp/netpb08	Shell: /bin/bash
+On since 월 10월 14 17:57 (KST) on pts/7 from is111.skuniv.ac.kr
+On since 월 10월 14 18:32 (KST) on pts/31 from is111.skuniv.ac.kr
+   1 minute 23 seconds idle
+No mail.
+Plan:
+2017301067 Chung Min Ji
+netpb08@~/prog/ 1001$ ./tcp_echocli1 117.17.142.201 5008
+입력 : netpb08
+수신 : netpb08
+netpb08@~/prog/ 1002$ ./tcp_echocli2 info.skuniv.ac.kr 500[K[K[K6008
+입력 : nept  tpb0-8  8
+수신 : netpb08
+netpb08@~/prog/ 1003$ exit
+
+Script done on 2019년 10월 14일 (월) 오후 07시 04분 26초

@@ -1,0 +1,23 @@
+Script started on 2019년 09월 26일 (목) 오전 11시 36분 42초
+[?1034hnetpb08@~/program/ 1001$ finger netpb08
+Login: netpb08        			Name: netpb08
+Directory: /home/student/netp/netpb08	Shell: /bin/bash
+On since 목  9월 26 09:00 (KST) on pts/8 from is111.skuniv.ac.kr
+No mail.
+Plan:
+2017301067 Chung Min Ji
+netpb08@~/program/ 1002$ ./open_socket 
+/etc/passwd's file descriptor = 3
+stream socket descriptor = 4
+datagram socket descriptor = 5
+/etc/hosts's file descriptor = 6
+netpb08@~/program/ 1003$ ./byte_order 
+UDP에코 포트번호(네트워크 순서): 1792
+UDP에코 포트번호(호스트 순서): 7
+netpb08@~/program/ 1004$ ./ascii_ip 203.249.123.213
+* 입력한 dotted decimal IP 주소 : 203.249.123.213
+inet_pton(203.249.123.213) = 0xD57BF9CB
+inet_ntop(0xD57BF9CB) = 203.249.123.213
+netpb08@~/program/ 1005$ exit
+
+Script done on 2019년 09월 26일 (목) 오전 11시 37분 03초

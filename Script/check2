@@ -1,0 +1,31 @@
+Script started on 2019년 10월 10일 (목) 오전 11시 40분 27초
+[?1034hnetpb08@~/ 1001$ finger netpb08
+Login: netpb08        			Name: netpb08
+Directory: /home/student/netp/netpb08	Shell: /bin/bash
+On since 목 10월 10 10:42 (KST) on pts/17 from is111.skuniv.ac.kr
+   6 minutes 14 seconds idle
+On since 목 10월 10 10:50 (KST) on pts/35 from is111.skuniv.ac.kr
+No mail.
+Plan:
+2017301067 Chung Min Ji
+netpb08@~/ 1002$ cd prog
+netpb08@~/prog/ 1003$ ./get_)\[K[Khostst[K[Kent info.skuniv.ac.kr
+호스트 이름 : info.skuniv.ac.kr
+호스트 주소타입 번호 : 2
+호스트 주소의 길이 : 4 바이트
+IP 주소(1번째) : 117.17.142.201
+호스트 별명(1번째) : info
+
+netpb08@~/prog/ 1004$ ./get_host_byaddr 117.17.142.201
+호스트 이름 : info.skuniv.ac.kr
+netpb08@~/prog/ 1005$ ./mydaytime 127.0.0.1
+10 OCT 2019 11:40:57 KST
+netpb08@~/prog/ 1006$ ./tcp_echocli 127.9.9.[K[K[K[K0.0.1
+입력 : netpb08
+수신 : netpb08
+netpb08@~/prog/ 1007$ ./tcp [K_echocli 11[K[K[K1 127[K[K17.17.142.201
+입력 : netpb08
+수신 : netpb08
+netpb08@~/prog/ 1008$ exit
+
+Script done on 2019년 10월 10일 (목) 오전 11시 41분 32초
